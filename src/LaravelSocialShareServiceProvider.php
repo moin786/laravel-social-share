@@ -1,6 +1,6 @@
 <?php
 
-namespace Vendor\SocialShare;
+namespace Peal\SocialShare;
 
 use Illuminate\Support\ServiceProvider;
 use Peal\SocialShare\Support\ShareManager;
