@@ -6,5 +6,5 @@ $vendorDir = dirname(__DIR__);
 $baseDir = dirname($vendorDir);
 
 return array(
-    'Mohammedminuddin786\\LaravelSocialShare\\' => array($baseDir . '/src'),
+    'Peal\\SocialShare\\' => array($baseDir . '/src'),
 );

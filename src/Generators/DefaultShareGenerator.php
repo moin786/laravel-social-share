@@ -2,6 +2,7 @@
 
 namespace Peal\SocialShare\Generators;
 
+use Illuminate\Support\Facades\Route;
 use Peal\SocialShare\Contracts\ShareGenerator;
 use Peal\SocialShare\DTOs\ShareData;
 
@@ -11,9 +12,11 @@ class DefaultShareGenerator implements ShareGenerator
     {
         $routeName = config('social-share.routes.product');
 
-        $url = $routeName && Route::has($routeName)
-            ? \route($routeName, $product->slug)
-            : url('/products/' . $product->slug);
+        $slug = data_get($model, 'slug');
+
+        $url = $routeName && Route::has($routeName) && $slug
+            ? route($routeName, $slug)
+            : url('/products/' . $slug);
 
         return ShareData::make([
             'title' => config('app.name'),

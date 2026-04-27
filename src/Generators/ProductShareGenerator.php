@@ -2,6 +2,7 @@
 
 namespace Peal\SocialShare\Generators;
 
+use Illuminate\Support\Facades\Route;
 use Peal\SocialShare\Contracts\ShareGenerator;
 use Peal\SocialShare\DTOs\ShareData;
 
@@ -12,7 +13,7 @@ class ProductShareGenerator implements ShareGenerator
         $routeName = config('social-share.routes.product');
 
         $url = $routeName && Route::has($routeName)
-            ? \route($routeName, $product->slug)
+            ? route($routeName, $product->slug)
             : url('/products/' . $product->slug);
 
         return ShareData::make([
