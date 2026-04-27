@@ -4,4 +4,4 @@ Auto Open Graph + Multi-platform sharing engine for Laravel.
 
 ## Install
 
-composer require your-vendor/laravel-social-share
+composer require peal/laravel-social-share
