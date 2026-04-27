@@ -1,6 +1,6 @@
 <?php
 
-namespace Vendor\SocialShare\Facades;
+namespace Peal\SocialShare\Facades;
 
 use Illuminate\Support\Facades\Facade;
 
