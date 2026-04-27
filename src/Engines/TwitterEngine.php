@@ -7,7 +7,7 @@ class TwitterEngine
     public function url(string $shareUrl, string $text = ''): string
     {
         return "https://twitter.com/intent/tweet?url="
-            . urlencode($shareUrl)
+            . $shareUrl
             . "&text=" . urlencode($text);
     }
 }
