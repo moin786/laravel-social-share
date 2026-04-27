@@ -1,26 +1,25 @@
 <?php
 
-namespace Vendor\SocialShare\Support;
+namespace Peal\SocialShare\Support;
+
+use Peal\SocialShare\DTOs\ShareData;
+use Peal\SocialShare\Generators\ProductShareGenerator;
+use Peal\SocialShare\Generators\DefaultShareGenerator;
 
 class ShareManager
 {
-    public function facebook($url)
+    public function for(mixed $model): ShareData
     {
-        return "https://www.facebook.com/sharer/sharer.php?u=" . urlencode($url);
+        return match (true) {
+            $model instanceof \App\Models\Product
+            => (new ProductShareGenerator())->generate($model),
+
+            default => (new DefaultShareGenerator())->generate($model),
+        };
     }
 
-    public function twitter($url, $text = '')
+    public function auto($request): ShareData
     {
-        return "https://twitter.com/intent/tweet?url=" . urlencode($url) . "&text=" . urlencode($text);
-    }
-
-    public function whatsapp($url, $text = '')
-    {
-        return "https://wa.me/?text=" . urlencode($text . ' ' . $url);
-    }
-
-    public function linkedin($url)
-    {
-        return "https://www.linkedin.com/sharing/share-offsite/?url=" . urlencode($url);
+        return (new DefaultShareGenerator())->generate($request);
     }
 }

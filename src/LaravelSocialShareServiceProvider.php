@@ -3,7 +3,7 @@
 namespace Vendor\SocialShare;
 
 use Illuminate\Support\ServiceProvider;
-use Vendor\SocialShare\Support\ShareManager;
+use Peal\SocialShare\Support\ShareManager;
 
 class LaravelSocialShareServiceProvider extends ServiceProvider
 {
