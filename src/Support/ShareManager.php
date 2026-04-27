@@ -1,5 +1,8 @@
 <?php
 
+namespace Peal\SocialShare\Support;
+
+
 use Peal\SocialShare\DTOs\ShareData;
 use Peal\SocialShare\Generators\ProductShareGenerator;
 use Peal\SocialShare\Generators\DefaultShareGenerator;
