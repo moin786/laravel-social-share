@@ -12,7 +12,7 @@ class ProductShareGenerator implements ShareGenerator
         $routeName = config('social-share.routes.product');
 
         $url = $routeName && Route::has($routeName)
-            ? route($routeName, $product->slug)
+            ? \route($routeName, $product->slug)
             : url('/products/' . $product->slug);
 
         return ShareData::make([
